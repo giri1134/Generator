@@ -2,7 +2,7 @@ from llama_cpp import Llama
 
 # Load model ONCE
 llm = Llama(
-    model_path="models/letter_model.gguf",
+    model_path="models/model.gguf",
     n_ctx=2048,
     n_threads=8,  
     verbose=False
