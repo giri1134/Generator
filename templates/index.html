@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Letter Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        textarea, input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+        .letter {
+            margin-top: 30px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Letter Generator</h2>
+
+<form method="post" action="/generate">
+    <h4>From</h4>
+    <input type="text" name="from_name" placeholder="From Name" required>
+    <textarea name="from_address" placeholder="From Address" required></textarea>
+
+    <h4>To</h4>
+    <input type="text" name="to_name" placeholder="To Name" required>
+    <textarea name="to_address" placeholder="To Address" required></textarea>
+
+    <h4>Reason</h4>
+    <textarea name="reason" placeholder="Reason for letter" required></textarea>
+
+    <button type="submit">Generate</button>
+</form>
+
+{% if letter %}
+<hr>
+
+<div class="letter">
+<strong>From:</strong><br>
+{{ letter.from_name }}<br>
+{{ letter.from_address }}
+
+<br><br>
+
+<strong>To:</strong><br>
+{{ letter.to_name }}<br>
+{{ letter.to_address }}
+
+<br><br>
+
+{{ letter.body }}
+</div>
+{% endif %}
+
+</body>
+</html>
